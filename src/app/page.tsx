@@ -1,8 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-8 gap-16">
+      {/* Logo */}
+      <Image
+        src="/nexnyx-logo.png"
+        alt="NexNyx Logo"
+        width={220}
+        height={80}
+        priority
+      />
+
       {/* Hero Section */}
       <section className="text-center space-y-6">
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
