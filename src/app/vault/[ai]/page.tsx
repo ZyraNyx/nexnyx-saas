@@ -57,14 +57,18 @@ const AI_DATA = {
 };
 
 export async function generateMetadata({ params }: { params: { ai: string } }): Promise<Metadata> {
-    const data = AI_DATA[params.ai];
+    // Cast 'params.ai' to a valid key of 'AI_DATA' to prevent TypeScript error
+    const data = AI_DATA[params.ai as keyof typeof AI_DATA];
+
     return {
         title: data?.name || 'Vault',
     };
 }
 
 export default function VaultAIPage({ params }: { params: { ai: string } }) {
-    const ai = AI_DATA[params.ai];
+    // Cast 'params.ai' to a valid key of 'AI_DATA' to prevent TypeScript error
+    const ai = AI_DATA[params.ai as keyof typeof AI_DATA];
+
     if (!ai) return notFound();
 
     return (
